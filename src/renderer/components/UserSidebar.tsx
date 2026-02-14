@@ -1,5 +1,11 @@
 import React from "react";
 
+type User = {
+    id: string;
+    username: string;
+};
+
+const users: User[] = [];
 
 export default function UserSidebar() {
     return (
@@ -11,8 +17,7 @@ export default function UserSidebar() {
                         <p>{user.username}</p>
                     </div>
                 ))}
-
             </div>
         </div>
-    )
+    );
 }

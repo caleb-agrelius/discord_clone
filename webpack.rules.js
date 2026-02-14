@@ -43,4 +43,15 @@ module.exports = [
         },
       },
     },
+    // TypeScript loader for TS/TSX
+    {
+      test: /\.(ts|tsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true
+        },
+      },
+    },
 ];

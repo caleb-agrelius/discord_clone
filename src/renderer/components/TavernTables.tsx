@@ -1,5 +1,12 @@
 import React from "react";
 
+type Table = {
+    id: string;
+    name: string;
+};
+
+const tables: Table[] = [];
+
 function TavernTables() {
     return (
         <div>
@@ -10,7 +17,7 @@ function TavernTables() {
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 export default TavernTables;

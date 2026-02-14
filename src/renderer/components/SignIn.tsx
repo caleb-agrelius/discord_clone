@@ -1,14 +1,14 @@
-import React from "react";
-
+import React, { useState } from "react";
 
 const PageState = {
     SIGN_IN: "SIGN_IN",
     REGISTER: "REGISTER",
-}
+} as const;
+
+type PageStateType = typeof PageState[keyof typeof PageState];
 
 function SignIn() {
-
-    const [page, setPage] = React.useState(PageState.SIGN_IN);
+    const [page, setPage] = useState<PageStateType>(PageState.SIGN_IN);
     return (
         <div>
             <input type="text" placeholder="Username" />
@@ -20,7 +20,7 @@ function SignIn() {
                 {page === PageState.SIGN_IN ? "Register" : "Sign In"}
             </button>
         </div>
-    )
+    );
 }
 
 export default SignIn;

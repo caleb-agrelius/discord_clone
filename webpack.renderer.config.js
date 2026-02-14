@@ -10,5 +10,5 @@ module.exports = {
   module: {
     rules,
   },
-  entry: './src/renderer/index.jsx',
+  entry: './src/renderer/index.tsx',
 };
