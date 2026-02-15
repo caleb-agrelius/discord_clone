@@ -22,11 +22,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 400px;
-    min-width: 400px;
     flex: 1;
+    min-width: 0;
     background-color: var(--theme-brown-dark);
     border-left: 1px solid var(--border-color);
+    flex-shrink: 0;
 
     .text-input {
         display: flex;
@@ -61,7 +61,7 @@
 .main-layout {
     display: flex;
     flex-direction: row;
-    flex: 1 1 auto;
+    flex: 1;
     height: 100%;
     min-height: 0;
 }
@@ -82,9 +82,9 @@
     background-color: rgb(82, 68, 61);
     height: 100%;
     min-height: 0;
-    width: 180px;
+    width: 250px;
     border-right: 1px solid var(--border-color);
-    padding: 15px 0;
+    padding: 10px 10px;
     flex-shrink: 0;
 }
 
@@ -92,9 +92,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    width: 100%;
-    padding: 10px;
+    gap: 12px;
+    width: 70%;
+    padding: 10px 10px;
 }
 
 .user-item {
@@ -120,4 +120,107 @@
 .header-buttons {
     display: flex;
     gap: 10px;
+}
+
+.tavern-tables-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.create-table-button {
+    background-color: var(--accent);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-table-button:hover {
+    background-color: var(--theme-brown-light);
+}
+
+.taverns-page-button {
+    background-color: var(--accent);
+    border: none;
+    color: var(--text-primary);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &:hover {
+        background-color: var(--theme-brown-light);
+        color: var(--text-primary);
+    }
+
+    &.active {
+        background-color: var(--theme-brown-light);
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+}
+
+.friendslist-page-button {
+    background-color: var(--accent);
+    border: none;
+    color: var(--text-primary);
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &:hover {
+        background-color: var(--theme-brown-light);
+        color: var(--text-primary);
+    }
+
+    &.active {
+        background-color: var(--theme-brown-light);
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+}
+
+.friends-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 90%;
+    padding: 15px 10px;
+}
+
+.friend-item {
+    padding: 10px 12px;
+    background-color: var(--theme-brown-light);
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: var(--text-primary);
+
+    &:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
 }

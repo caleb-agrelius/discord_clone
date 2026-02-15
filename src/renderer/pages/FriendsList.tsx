@@ -1,6 +1,6 @@
 import React from "react";
 
-function FriendsList() {
+function FriendsList({setPage}: {setPage: (page: string) => void}) {
     const friends = [
         { id: "1", username: "Alice" },
         { id: "2", username: "Bob" },
@@ -9,7 +9,7 @@ function FriendsList() {
     return (
         <div className="friends-list-container">
             {friends.map(friend => (
-                <div key={friend.id}>
+                <div onClick={() => setPage("DirectMessage")} className="friend-item" key={friend.id}>
                     <p>{friend.username}</p>
                 </div>
             ))}

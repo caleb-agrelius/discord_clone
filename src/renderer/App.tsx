@@ -1,14 +1,18 @@
 import React from "react";
+
 import SignIn from "./pages/SignIn.tsx";
 import FriendsList from "./pages/FriendsList.tsx";
+import DirectMessage from "./pages/DirectMessage.tsx";
 
 import UserSidebar from "./components/UserSidebar.tsx";
 import TavernTables from "./components/TavernTables.tsx";
+
 
 import { DEV_BYPASS } from "./util/constants.ts";
 
 import { FaUserFriends, FaHouseUser } from "react-icons/fa";
 import "./index.css";
+import TextChat from "./components/TextChat.tsx";
 
 export default function App() {
     const [userSignedIn, setUserSignedIn] = React.useState(DEV_BYPASS);
@@ -25,19 +29,19 @@ export default function App() {
     return (
         <div className="app-container">
             <div className="header">
-                <p>The Yawning Portal</p>
+                <p className="app-title">The Yawning Portal</p>
                 <div className="header-buttons">
-                <button onClick={() => setPage("Taverns")}><FaHouseUser /></button>
-                <button onClick={() => setPage("FriendsList")} ><FaUserFriends /></button>
+                    <button className="taverns-page-button" onClick={() => setPage("Taverns")}><FaHouseUser /></button>
+                    <button className="friendslist-page-button" onClick={() => setPage("FriendsList")} ><FaUserFriends /></button>
                 </div>
             </div>
             <div className="main-layout">
-                
                 <div className="main-content">
-                    {page === "Taverns" && <TavernTables />}
-                    {page === "FriendsList" && <FriendsList />}
+                    {page === "Taverns" && <><TavernTables /><TextChat /></>}
+                    {page === "FriendsList" && <FriendsList setPage={setPage} />}
+                    {page === "DirectMessage" && <DirectMessage />}
                 </div>
-                <UserSidebar />
+                {page === "Taverns" && <UserSidebar />}
             </div>
         </div>
     );
