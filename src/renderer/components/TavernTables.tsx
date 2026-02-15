@@ -15,6 +15,7 @@ type SetTextChannels = React.Dispatch<React.SetStateAction<Channel[]>>;
 function TableModal({ setTables, setTextChannels }: { setTables: SetTables, setTextChannels: SetTextChannels }) {
     const [newTableType, setNewTableType] = React.useState<"text" | "voice">("text");
     const [newTableName, setNewTableName] = React.useState("");
+
     const addTableOrTextChannel = (type: "text" | "voice", name: string) => {
         const newId = Math.floor(Math.random() * 100000);
         if (type === "text") {
@@ -23,6 +24,7 @@ function TableModal({ setTables, setTextChannels }: { setTables: SetTables, setT
             setTables(prev => [...prev, { id: newId, name }]);
         }
     };
+    
     return (
         <div className="table-modal">
             <h2>Create a new table</h2>
