@@ -38,8 +38,10 @@
     "style-loader": "^3.3.4"
   },
   "dependencies": {
+    "better-sqlite3": "^12.6.2",
     "electron-squirrel-startup": "^1.0.1",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "uuid": "^13.0.0"
   }
 }

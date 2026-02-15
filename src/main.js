@@ -1,4 +1,13 @@
 const { app, BrowserWindow } = require('electron');
+const {v4: uuidv4} = require('uuid');
+
+const uuid = uuidv4();
+
+// User local profile data is stored in a local SQLite datanbase.
+const db = require('better-sqlite3')('local-user-data.db');
+db.prepare('CREATE TABLE IF NOT EXISTS user_data (id TEXT PRIMARY KEY, username TEXT, password TEXT) ').run();
+db.prepare('INSERT INTO user_data (id) VALUES (?)').run(uuid);
+
 const path = require('node:path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
