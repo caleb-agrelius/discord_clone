@@ -1,5 +1,5 @@
 import React from "react";
-import SignIn from "./components/SignIn.tsx";
+import SignIn from "./pages/SignIn.tsx";
 import UserSidebar from "./components/UserSidebar.tsx";
 import TextChat from "./components/TextChat.tsx";
 import TavernTables from "./components/TavernTables.tsx";
@@ -24,15 +24,15 @@ export default function App() {
             <div className="header">
                 <p>The Yawning Portal</p>
                 <div className="header-buttons">
-                <FaHouseUser><button /></FaHouseUser>
-                <FaUserFriends><button /></FaUserFriends>
+                <button><FaHouseUser /></button>
+                <button><FaUserFriends /></button>
                 </div>
             </div>
             <div className="main-layout">
                 
                 <div className="main-content">
-                    <TavernTables />
-                    <TextChat />
+                    {page === "Taverns" ? <TavernTables /> : <TextChat />}
+                    
                 </div>
                 <UserSidebar />
             </div>
