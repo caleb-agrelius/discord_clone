@@ -5,15 +5,19 @@ type User = {
     username: string;
 };
 
-const users: User[] = [];
+const users: User[] = [
+    { id: "1", username: "Alice" },
+    { id: "2", username: "Bob" },
+    { id: "3", username: "Charlie" },
+];
 
 export default function UserSidebar() {
     return (
-        <div>
+        <div className="user-sidebar">
             <h1>Patrons</h1>
-            <div>
+            <div className="user-list">
                 {users.map((user) => (
-                    <div key={user.id}>
+                    <div className="user-item" key={user.id}>
                         <p>{user.username}</p>
                     </div>
                 ))}

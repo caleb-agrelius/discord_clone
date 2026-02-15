@@ -6,21 +6,36 @@ import TavernTables from "./components/TavernTables.tsx";
 
 import { DEV_BYPASS } from "./util/constants.ts";
 
+import { FaUserFriends, FaHouseUser } from "react-icons/fa";
+
 export default function App() {
-    
     const [userSignedIn, setUserSignedIn] = React.useState(DEV_BYPASS);
 
+    if (!userSignedIn) {
+        return (
+            <div>
+                <SignIn />
+            </div>
+        );
+    }
+
     return (
-        userSignedIn ?
-        <div>
-            <h1>The Yawning Portal</h1>
-            <UserSidebar />
-            <TextChat />
-            <TavernTables />
-        </div>
-        :
-        <div>
-            <SignIn />
+        <div className="app-container">
+            <div className="header">
+                <p>The Yawning Portal</p>
+                <div className="header-buttons">
+                <FaHouseUser><button /></FaHouseUser>
+                <FaUserFriends><button /></FaUserFriends>
+                </div>
+            </div>
+            <div className="main-layout">
+                
+                <div className="main-content">
+                    <TavernTables />
+                    <TextChat />
+                </div>
+                <UserSidebar />
+            </div>
         </div>
     );
 }

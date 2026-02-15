@@ -9,7 +9,8 @@ const tables: Table[] = [];
 
 function TavernTables() {
     return (
-        <div>
+        <div className="tavern-tables-container">
+            <h1>Tables Go Here (channels)</h1>
             {tables.map(table => (
                 <div key={table.id}>
                     <p>going to make each of these a brown circle with the user pfp's around the edge</p>
