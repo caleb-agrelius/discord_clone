@@ -30,6 +30,13 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  mainWindow.webContents.on('before-input-event', (event, input) => {
+    if (input.key === 'F12') {
+      mainWindow.webContents.openDevTools();
+      event.preventDefault();
+    }
+  });
 };
 
 // This method will be called when Electron has finished

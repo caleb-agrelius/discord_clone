@@ -4,22 +4,21 @@ type Table = {
     id: string;
     name: string;
 };
-type Chennel = {
+type Channel = {
     id: string;
     name: string;
 };
 
-const tables: Table[] = [
-    { id: "1", name: "Table 1" },
-    { id: "2", name: "Table 2" },
-];
-
-const textChannels: Chennel[] = [
-    { id: "1", name: "General" },
-    { id: "2", name: "Off-topic" },
-];
 
 function TavernTables() {
+    const [tables, setTables] = React.useState<Table[]>([
+        { id: "1", name: "Table 1" },
+        { id: "2", name: "Table 2" },
+    ]);
+    const [textChannels, setTextChannels] = React.useState<Channel[]>([
+        { id: "1", name: "General" },
+        { id: "2", name: "Off-topic" },
+    ]);
     return (
         <div className="tavern-tables-container">
             <div className="tavern-tables-header">
