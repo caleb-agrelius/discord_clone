@@ -38,6 +38,57 @@
     }
 }
 
+.text-channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+
+.voice-channel-item-button {
+    background-color: var(--theme-brown-light);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.text-channel-item-button {
+    background-color: var(--theme-brown-light);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
 .header {
     background-color: var(--theme-brown-dark);
     height: 50px;

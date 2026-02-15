@@ -1,11 +1,23 @@
 import React from "react";
-import {FaPlus} from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 type Table = {
     id: string;
     name: string;
 };
+type Chennel = {
+    id: string;
+    name: string;
+};
 
-const tables: Table[] = [];
+const tables: Table[] = [
+    { id: "1", name: "Table 1" },
+    { id: "2", name: "Table 2" },
+];
+
+const textChannels: Chennel[] = [
+    { id: "1", name: "General" },
+    { id: "2", name: "Off-topic" },
+];
 
 function TavernTables() {
     return (
@@ -14,12 +26,26 @@ function TavernTables() {
                 <h1 className="tavern-tables-title">Tables</h1>
                 <button className="create-table-button"><FaPlus /></button>
             </div>
-            {tables.map(table => (
-                <div key={table.id}>
-                    <p>going to make each of these a brown circle with the user pfp's around the edge</p>
-                    <h2>{table.name}</h2>
+            <div className="text-channels-container">
+                <h2 className="text-channels-title">Text Channels</h2>
+                <div className="text-channels-list">
+                {textChannels.map(channel => (
+                    <button className="text-channel-item-button" key={channel.id}>
+                        <h3>{channel.name}</h3>
+                    </button>
+                ))}
                 </div>
-            ))}
+            </div>
+            <div className="voice-channels-container">
+                <h2 className="voice-channels-title">Voice Channels</h2>
+                <div className="voice-channels-list">
+                {tables.map(table => (
+                    <button className="voice-channel-item-button" key={table.id}>
+                        <h2>{table.name}</h2>
+                    </button>
+                ))}
+                </div>
+            </div>
         </div>
     );
 }
