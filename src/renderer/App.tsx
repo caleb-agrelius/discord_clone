@@ -8,6 +8,7 @@ import TavernTables from "./components/TavernTables.tsx";
 import { DEV_BYPASS } from "./util/constants.ts";
 
 import { FaUserFriends, FaHouseUser } from "react-icons/fa";
+import "./index.css";
 
 export default function App() {
     const [userSignedIn, setUserSignedIn] = React.useState(DEV_BYPASS);
