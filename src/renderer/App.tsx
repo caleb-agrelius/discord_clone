@@ -1,11 +1,15 @@
 import React from "react";
-import SignIn from "./components/SignIn";
-import UserSidebar from "./components/UserSidebar";
-import TextChat from "./components/TextChat";
-import TavernTables from "./components/TavernTables";
+import SignIn from "./components/SignIn.tsx";
+import UserSidebar from "./components/UserSidebar.tsx";
+import TextChat from "./components/TextChat.tsx";
+import TavernTables from "./components/TavernTables.tsx";
+
+import { DEV_BYPASS } from "./util/constants.ts";
 
 export default function App() {
-    const [userSignedIn, setUserSignedIn] = React.useState(false);
+    
+    const [userSignedIn, setUserSignedIn] = React.useState(DEV_BYPASS);
+
     return (
         userSignedIn ?
         <div>
@@ -16,7 +20,6 @@ export default function App() {
         </div>
         :
         <div>
-            Sign In
             <SignIn />
         </div>
     );

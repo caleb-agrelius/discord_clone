@@ -34,7 +34,7 @@ module.exports = [
    */
     // Babel loader for JSX/React
     {
-      test: /\.(js|jsx)$/,
+      test: /\.(js|jsx|ts|tsx)$/,
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
