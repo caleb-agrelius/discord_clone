@@ -200,7 +200,7 @@
 }
 
 .taverns-page-button {
-    background-color: var(--accent);
+    background-color: var(--theme-brown-dark);
     border: none;
     color: var(--text-primary);
     padding: 10px 15px;
@@ -225,7 +225,7 @@
 }
 
 .friendslist-page-button {
-    background-color: var(--accent);
+    background-color: var(--theme-brown-dark);
     border: none;
     color: var(--text-primary);
     padding: 10px 15px;
