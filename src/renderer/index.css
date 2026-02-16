@@ -151,9 +151,9 @@
 
 .user-item {
     padding: 10px 12px;
-    background-color: var(--theme-brown-light);
+    background-color: var(--theme-brown-dark);
     width: 90%;
-    border: 1px solid var(--border-color);
+    
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -162,6 +162,7 @@
 
     &:hover {
         background-color: var(--accent);
+        border: 1px solid var(--border-color);
         border-color: var(--accent);
     }
 
