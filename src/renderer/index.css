@@ -293,3 +293,33 @@
         transform: scale(0.98);
     }
 }
+
+.tavern-thumbnail-card {
+    background-color: var(--theme-brown-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    height: 200px;
+    width: 400px;
+
+    &:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.my-taverns-list {
+    
+}
