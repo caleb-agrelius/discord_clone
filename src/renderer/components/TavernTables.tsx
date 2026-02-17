@@ -3,6 +3,7 @@ import { FaPlus } from "react-icons/fa";
 type Table = {
     id: number;
     name: string;
+    connectedUsers: string[];
 };
 type Channel = {
     id: number;
@@ -21,7 +22,7 @@ function TableModal({ setTables, setTextChannels }: { setTables: SetTables, setT
         if (type === "text") {
             setTextChannels(prev => [...prev, { id: newId, name }]);
         } else {
-            setTables(prev => [...prev, { id: newId, name }]);
+            setTables(prev => [...prev, { id: newId, name, connectedUsers: [] }]);
         }
     };
     
@@ -45,8 +46,8 @@ function TableModal({ setTables, setTextChannels }: { setTables: SetTables, setT
 
 function TavernTables() {
     const [tables, setTables] = React.useState<Table[]>([
-        { id: 1, name: "Table 1" },
-        { id: 2, name: "Table 2" },
+        { id: 1, name: "Table 1", connectedUsers: ["Alice", "Bob"] },
+        { id: 2, name: "Table 2", connectedUsers: ["Charlie", "Dina", "Ezra", "Frank"] },
     ]);
     const [textChannels, setTextChannels] = React.useState<Channel[]>([
         { id: 1, name: "General" },
@@ -76,7 +77,20 @@ function TavernTables() {
                 <div className="voice-channels-list">
                 {tables.map(table => (
                     <button className="voice-channel-item-button" key={table.id}>
-                        <h2>{table.name}</h2>
+                        <span className="voice-table-visual" aria-hidden="true">
+                            <span className="voice-table-top" />
+                            {table.connectedUsers.map((user, index) => (
+                                <span
+                                    key={`${table.id}-${user}-${index}`}
+                                    className="voice-chair"
+                                    style={{
+                                        "--chair-angle": `${(index / Math.max(table.connectedUsers.length, 1)) * 360}deg`,
+                                    } as React.CSSProperties}
+                                    title={user}
+                                />
+                            ))}
+                        </span>
+                        <span className="voice-table-name">{table.name} ({table.connectedUsers.length})</span>
                     </button>
                 ))}
                 </div>
