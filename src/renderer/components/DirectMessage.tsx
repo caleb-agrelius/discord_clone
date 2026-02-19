@@ -1,12 +1,12 @@
 import React from "react";
-import SearchBar from "../components/SearchBar.tsx";
-import TextChat from "../components/TextChat.tsx";
+import SearchBar from "./SearchBar.tsx";
+import TextChat from "./TextChat.tsx";
 
-function DirectMessage() {
+function DirectMessage({ friendId }: { friendId: string | null }) {
     return (
         <div className="direct-message-container">
             <SearchBar placeholderText="Search messages" runSearchFunction={() => console.log("Search function called from direct message")}/>
-            <p>Direct Message</p>
+            <p>Direct Message {friendId ? `#${friendId}` : ""}</p>
 
             <TextChat />
         </div>

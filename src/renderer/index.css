@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&display=swap');
+
 :root {
     --theme-brown: rgb(85, 57, 40);
     --theme-brown-dark: rgb(65, 43, 30);
@@ -8,34 +10,55 @@
     --accent: rgb(180, 120, 80);
 }
 
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Alegreya', Georgia, 'Times New Roman', serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 .app-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     color: var(--text-primary);
     background-color: var(--theme-brown);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
 }
 
 .text-chat-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    flex: 1;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
     background-color: var(--theme-brown-dark);
     border-left: 1px solid var(--border-color);
-    flex-shrink: 0;
+    padding: 12px;
+    gap: 8px;
+}
 
-    .text-input {
-        display: flex;
-        flex-direction: column;
-        margin-top: auto;
-        margin-bottom: 15px;
-        padding: 15px;
-        gap: 8px;
-    }
+.text-input {
+    margin-top: auto;
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--theme-brown-light);
+    color: var(--text-primary);
+    padding: 0 14px;
+    font-size: 14px;
 }
 
 .text-channels-list {
@@ -51,11 +74,11 @@
 }
 
 .text-channels-container {
-    margin-left: 10px;
+    margin: 8px 10px 0;
 }
 
 .voice-channels-container {
-    margin-left: 10px;
+    margin: 16px 10px 0;
 }
 
 .voice-channel-item-button {
@@ -70,23 +93,14 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 92%;
-    min-height: 84px;
-
-    &:hover {
-        background-color: var(--accent);
-        border-color: var(--accent);
-    }
-
-    &:active {
-        transform: scale(0.98);
-    }
+    width: 100%;
+    min-height: 78px;
 }
 
 .voice-table-visual {
     position: relative;
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     flex-shrink: 0;
 }
 
@@ -95,8 +109,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 46px;
-    height: 46px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--theme-brown);
     border: 2px solid var(--border-color);
@@ -104,14 +118,14 @@
 
 .voice-chair {
     position: absolute;
-    width: 16px;
-    height: 10px;
+    width: 14px;
+    height: 9px;
     border-radius: 5px;
     background-color: var(--theme-brown-dark);
     border: 1px solid var(--border-color);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(var(--chair-angle)) translateY(-31px);
+    transform: translate(-50%, -50%) rotate(var(--chair-angle)) translateY(-28px);
     transform-origin: center;
 }
 
@@ -125,42 +139,39 @@
     background-color: var(--theme-brown-light);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 10px 12px;
+    padding: 0 12px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 14px;
     color: var(--text-primary);
     display: flex;
     align-items: center;
-
-    &:hover {
-        background-color: var(--accent);
-        border-color: var(--accent);
-    }
-
-    &:active {
-        transform: scale(0.98);
-    }
+    min-height: 40px;
+    width: 100%;
 }
 
 .header {
     background-color: var(--theme-brown-dark);
-    height: 50px;
+    height: 48px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    justify-content: flex-start;
+    padding: 0 12px;
     font-weight: 600;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 .tavern-tables-container {
-    width: 280px;
+    width: 240px;
+    min-width: 240px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     border-right: 1px solid var(--border-color);
     background-color: var(--theme-brown-dark);
+    flex-shrink: 0;
 }
 
 .tavern-page {
@@ -168,20 +179,38 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.tavern-page > h1 {
+    height: 48px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--theme-brown-dark);
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tavern-layout {
     display: flex;
     flex-direction: row;
-    height: 100%;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
 }
 
 .main-layout {
     display: flex;
     flex-direction: row;
     flex: 1;
-    height: 100%;
     min-height: 0;
 }
 
@@ -192,55 +221,57 @@
     height: 100%;
     min-width: 0;
     min-height: 0;
+    overflow: hidden;
 }
 
 .user-sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: var(--theme-brown-dark);
-    border: 1px solid var(--border-color);
     height: 100%;
     min-height: 0;
-    width: 250px;
+    width: 240px;
+    min-width: 240px;
     border-right: 1px solid var(--border-color);
-    padding: 10px 10px;
+    padding: 12px;
     flex-shrink: 0;
 }
 
 .user-list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: 70%;
-    padding: 10px 10px;
+    gap: 8px;
+    width: 100%;
+    padding-top: 8px;
 }
 
 .user-item {
-    padding: 10px 12px;
-    background-color: var(--theme-brown-dark);
-    width: 90%;
-    
+    padding: 0 10px;
+    background-color: var(--theme-brown-light);
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 14px;
     color: var(--text-primary);
-
-    &:hover {
-        background-color: var(--accent);
-        border: 1px solid var(--border-color);
-        border-color: var(--accent);
-    }
-
-    &:active {
-        transform: scale(0.98);
-    }
+    border: 1px solid var(--border-color);
 }
+
 .header-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tavern-tables-header {
@@ -248,7 +279,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    min-height: 48px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tavern-tables-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .create-table-button {
@@ -257,7 +296,8 @@
     border-radius: 4px;
     color: var(--text-primary);
     cursor: pointer;
-    padding: 5px 10px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -269,106 +309,336 @@
 
 .taverns-page-button {
     background-color: var(--theme-brown-dark);
-    border: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     color: var(--text-primary);
-    padding: 10px 15px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-
-    &:hover {
-        background-color: var(--theme-brown-light);
-        color: var(--text-primary);
-    }
-
-    &.active {
-        background-color: var(--theme-brown-light);
-        color: var(--text-primary);
-        font-weight: 600;
-    }
 }
 
 .friendslist-page-button {
     background-color: var(--theme-brown-dark);
-    border: none;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     color: var(--text-primary);
-    padding: 10px 15px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
     transition: all 0.2s ease;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-
-    &:hover {
-        background-color: var(--theme-brown-light);
-        color: var(--text-primary);
-    }
-
-    &.active {
-        background-color: var(--theme-brown-light);
-        color: var(--text-primary);
-        font-weight: 600;
-    }
 }
 
 .friends-list-container {
     display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+.friends-list {
+    display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 90%;
-    padding: 15px 10px;
+    gap: 8px;
+    width: 300px;
+    min-width: 260px;
+    max-width: 340px;
+    border-right: 1px solid var(--border-color);
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.direct-message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 12px;
 }
 
 .friend-item {
-    padding: 10px 12px;
+    padding: 0 12px;
     background-color: var(--theme-brown-light);
     width: 100%;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 14px;
     color: var(--text-primary);
+}
 
-    &:hover {
-        background-color: var(--accent);
-        border-color: var(--accent);
-    }
+.my-taverns-list {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 12px 12px;
+}
 
-    &:active {
-        transform: scale(0.98);
-    }
+.tavern-list-page {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 12px 0;
+}
+
+.tavern-list-title {
+    margin: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 16px;
 }
 
 .tavern-thumbnail-card {
     background-color: var(--theme-brown-dark);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 10px 12px;
+    border-radius: 8px;
+    padding: 12px;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 14px;
     color: var(--text-primary);
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    height: 200px;
-    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    min-height: 96px;
+}
 
-    &:hover {
-        background-color: var(--accent);
-        border-color: var(--accent);
+.tavern-thumbnail-card h1 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.tavern-thumbnail-card p {
+    margin: 0;
+}
+
+.search-bar-container {
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    min-height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--theme-brown-light);
+    color: var(--text-primary);
+    padding: 0 12px;
+    font-size: 14px;
+}
+
+.sign-in-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--theme-brown);
+    padding: 16px;
+}
+
+.sign-in-card {
+    width: 100%;
+    max-width: 360px;
+    min-height: 280px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--theme-brown-dark);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sign-in-input {
+    width: 100%;
+    min-height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--theme-brown-light);
+    color: var(--text-primary);
+    padding: 0 12px;
+    font-size: 14px;
+}
+
+.sign-in-submit,
+.sign-in-switch-button {
+    width: 100%;
+    min-height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--accent);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.sign-in-switch-text {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.table-modal {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--theme-brown);
+    width: calc(100% - 20px);
+}
+
+.table-modal input[type="text"] {
+    width: 100%;
+    min-height: 36px;
+    margin-top: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--theme-brown-light);
+    color: var(--text-primary);
+    padding: 0 10px;
+}
+
+.table-modal button {
+    width: 100%;
+    min-height: 36px;
+    margin-top: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--accent);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.voice-channel-item-button:hover,
+.text-channel-item-button:hover,
+.friend-item:hover,
+.user-item:hover,
+.tavern-thumbnail-card:hover,
+.taverns-page-button:hover,
+.friendslist-page-button:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.voice-channel-item-button:active,
+.text-channel-item-button:active,
+.friend-item:active,
+.user-item:active,
+.tavern-thumbnail-card:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 1280px) {
+    .tavern-tables-container,
+    .user-sidebar {
+        width: 220px;
+        min-width: 220px;
     }
 
-    &:active {
-        transform: scale(0.98);
+    .friends-list {
+        width: 280px;
+        min-width: 240px;
+        max-width: 300px;
+    }
+
+    .voice-channel-item-button {
+        min-height: 72px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .header,
+    .tavern-page > h1 {
+        height: 44px;
+    }
+
+    .tavern-tables-container,
+    .user-sidebar {
+        width: 200px;
+        min-width: 200px;
+    }
+
+    .friends-list {
+        width: 250px;
+        min-width: 220px;
+        max-width: 270px;
+    }
+
+    .voice-table-visual {
+        width: 50px;
+        height: 50px;
+    }
+
+    .voice-table-top {
+        width: 36px;
+        height: 36px;
+    }
+
+    .voice-chair {
+        transform: translate(-50%, -50%) rotate(var(--chair-angle)) translateY(-25px);
+    }
+
+    .voice-table-name {
+        font-size: 14px;
+    }
+
+    .text-input,
+    .search-input,
+    .friend-item,
+    .user-item,
+    .text-channel-item-button {
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 920px) {
+    .tavern-tables-container,
+    .user-sidebar {
+        width: 184px;
+        min-width: 184px;
+    }
+
+    .friends-list {
+        width: 220px;
+        min-width: 200px;
+        max-width: 240px;
+    }
+
+    .text-chat-container,
+    .direct-message-container,
+    .friends-list,
+    .user-sidebar,
+    .tavern-tables-container {
+        padding: 10px;
+    }
+
+    .tavern-page > h1,
+    .tavern-list-title {
+        font-size: 15px;
     }
 }
 

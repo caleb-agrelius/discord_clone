@@ -1,7 +1,8 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const {v4: uuidv4} = require('uuid');
 
 const uuid = uuidv4();
+
 
 // User local profile data is stored in a local SQLite datanbase.
 // const db = require('better-sqlite3')('local-user-data.db');
@@ -30,6 +31,9 @@ const createWindow = () => {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
+
+  // get rid of menu bar
+  Menu.setApplicationMenu(null);
 
   mainWindow.webContents.on('before-input-event', (event, input) => {
     if (input.key === 'F12') {

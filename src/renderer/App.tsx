@@ -2,7 +2,6 @@ import React from "react";
 
 import SignIn from "./pages/SignIn.tsx";
 import FriendsList from "./pages/FriendsList.tsx";
-import DirectMessage from "./pages/DirectMessage.tsx";
 import TavernPage from "./pages/TavernPage.tsx";
 import TavernList from "./pages/TavernList.tsx";
 
@@ -13,7 +12,7 @@ import "./index.css";
 
 export default function App() {
     const [userSignedIn, setUserSignedIn] = React.useState(DEV_BYPASS);
-    const [page, setPage] = React.useState("Taverns");
+    const [page, setPage] = React.useState("FriendsList");
     const [tavernName, setTavernName] = React.useState("");
 
     if (!userSignedIn) {
@@ -35,8 +34,7 @@ export default function App() {
             </div>
             <div className="main-layout">
                 <div className="main-content">
-                    {page === "FriendsList" && <FriendsList setPage={setPage} />}
-                    {page === "DirectMessage" && <DirectMessage />}
+                    {page === "FriendsList" && <FriendsList />}
                     {page === "Tavern" && <TavernPage tavernName={tavernName} />}
                     {page === "TavernList" && <TavernList setPage={setPage} setTavernName={setTavernName}/>}
                 </div>

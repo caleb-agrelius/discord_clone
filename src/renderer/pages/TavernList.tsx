@@ -3,6 +3,12 @@ import TavernThumbnail from "../components/TavernThumbnail.tsx";
 
 type setPage = React.Dispatch<React.SetStateAction<string>>;
 type setTavernName = React.Dispatch<React.SetStateAction<string>>;
+type Tavern = {
+    id: number;
+    tavern_name: string;
+    tavern_description: string;
+    patron_count: number;
+};
 
 function TavernList({ setPage, setTavernName }: { setPage: setPage, setTavernName: setTavernName }) {
     const taverns = [
@@ -17,18 +23,22 @@ function TavernList({ setPage, setTavernName }: { setPage: setPage, setTavernNam
     };
 
     return (
-        <div>
-            <h1>My Taverns</h1>
+        <div className="tavern-list-page">
+            <h1 className="tavern-list-title">My Taverns</h1>
             <div className="my-taverns-list">
-            {taverns.map((tavern) => (
-                <div key={tavern.id} onClick={() => openTavern(tavern.id, tavern.tavern_name)}>
-                    <TavernThumbnail
-                        tavern_name={tavern.tavern_name}
-                        tavern_description={tavern.tavern_description}
-                        patron_count={tavern.patron_count}
-                    />
-                </div>
-            ))}
+                {taverns.length === 0 ? (
+                    <p>You haven't joined any taverns yet. Explore and find a tavern to join!</p>
+                ) : (
+                    taverns.map((tavern: Tavern) => (
+                        <div key={tavern.id} onClick={() => openTavern(tavern.id, tavern.tavern_name)}>
+                            <TavernThumbnail
+                                tavern_name={tavern.tavern_name}
+                                tavern_description={tavern.tavern_description}
+                                patron_count={tavern.patron_count}
+                            />
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );
