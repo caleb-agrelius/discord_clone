@@ -49,16 +49,61 @@ body {
     gap: 8px;
 }
 
-.text-input {
+.text-input-row {
     margin-top: auto;
-    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
     min-height: 44px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background-color: var(--theme-brown-light);
+}
+
+.text-input-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.text-input {
+    width: 100%;
+    min-height: 44px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
     color: var(--text-primary);
-    padding: 0 14px;
+    padding: 0 52px 0 14px;
     font-size: 14px;
+}
+
+.text-input:focus {
+    outline: none;
+}
+
+.text-input-row:focus-within {
+    border-color: var(--accent);
+}
+
+.text-send-button {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .text-channels-list {
@@ -544,12 +589,21 @@ body {
     border-color: var(--accent);
 }
 
+.text-send-button:hover {
+    color: var(--accent);
+    background-color: var(--theme-brown-dark);
+}
+
 .voice-channel-item-button:active,
 .text-channel-item-button:active,
 .friend-item:active,
 .user-item:active,
 .tavern-thumbnail-card:active {
     transform: scale(0.98);
+}
+
+.text-send-button:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
 @media (max-width: 1280px) {
